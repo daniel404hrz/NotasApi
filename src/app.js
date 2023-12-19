@@ -3,6 +3,7 @@ import userRoutes from './routes/users.routes.js'
 import cookieParser from 'cookie-parser';
 import auth  from './routes/auth.js';
 import notesRoutes from './routes/notes.routes.js'
+import morgan from 'morgan';
 
 const app = express();
 
@@ -10,6 +11,7 @@ const app = express();
 //middlewares
 
 app.use(express.json());
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use((req, res, next) => {
@@ -19,6 +21,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
 
 app.use(userRoutes)
 app.use(auth)
