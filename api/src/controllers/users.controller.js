@@ -1,4 +1,4 @@
-import { Users } from '../models/Users.js';
+import { Users } from '../models/users.js';
 import bcrypt from 'bcrypt';
 export const getUsers = async (req, res) => {
   const users = await Users.findAll({
