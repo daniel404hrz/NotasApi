@@ -1,8 +1,8 @@
-import { Sequelize, DataTypes } from "sequelize";
+import { DataTypes } from "sequelize";
 import { sequelize } from "../db.js";
 import { Notas } from "./notas.js";
 
-export const Users = sequelize.define('User', {
+export const Users = sequelize.define('Users', {
     id: {
         type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -24,15 +24,15 @@ export const Users = sequelize.define('User', {
         allowNull: false
     }
 });
-
 Users.hasMany(Notas, {
-    foreignKey: 'userId', 
-    sourceKey: 'id'
+  foreignKey: 'userId',
+  sourceKey: 'id'
 });
 
 Notas.belongsTo(Users, {
-    foreignKey: 'userId', 
-    targetKey: 'id'
+  foreignKey: 'userId',
+  targetKey: 'id'
 });
+
 
 
