@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import auth  from './routes/auth.js';
 import notesRoutes from './routes/notes.routes.js'
 import morgan from 'morgan';
-
+import home from './routes/home.js'
 const app = express();
 
 
@@ -26,4 +26,5 @@ app.use((req, res, next) => {
 app.use(userRoutes)
 app.use(auth)
 app.use(notesRoutes)
+app.use(home)
 export default app;
